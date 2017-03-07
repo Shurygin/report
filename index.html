@@ -40,8 +40,8 @@ function init() {// Execute after login succeed
 	var unit_flags = wialon.item.Item.dataFlag.base;
 	
 	var sess = wialon.core.Session.getInstance(); // get instance of current Session
-	var usr=sess.getCurrUser();
-	msg("getCurrUser(): "+usr);
+	var usr=sess.getItems("avl_unit_group");
+	msg("avl_unit_group: "+usr);
 	sess.loadLibrary("resourceReports"); // load Reports Library
 	sess.updateDataFlags( // load items to current session
 		[{type: "type", data: "avl_resource", flags:res_flags , mode: 0}, // 'avl_resource's specification
