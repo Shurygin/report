@@ -76,7 +76,7 @@ function init() { // Execute after login succeed
 			},
 			{ // 'avl_unit's specification
 				type: "type",
-				data: "avl_unit",
+				data: "avl_unit_group",
 				flags: unit_flags,
 				mode: 0
 			}
@@ -97,7 +97,7 @@ function init() { // Execute after login succeed
 				$("#res").append("<option value='" + res[i].getId() + "'>" + res[i].getName() + "</option>");
 
 			var units = sess.getItems("avl_unit_group"); // get loaded 'avl_units's items
-			msg("groups: "+);
+			msg("groups: "+units);
 			// check if units found
 			if (!units || !units.length) {
 				msg("Units not found");
