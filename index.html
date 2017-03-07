@@ -43,7 +43,7 @@ function init() {// Execute after login succeed
 	sess.loadLibrary("resourceReports"); // load Reports Library
 	sess.updateDataFlags( // load items to current session
 		[{type: "type", data: "avl_resource", flags:res_flags , mode: 0}, // 'avl_resource's specification
-		 {type: "type", data: "avl_unit", flags: unit_flags, mode: 0}], // 'avl_unit's specification
+		 {type: "type", data: "avl_unit_group", flags: unit_flags, mode: 0}], // 'avl_unit's specification
 		function (code) { // updateDataFlags callback
 			if (code) { msg(wialon.core.Errors.getErrorText(code)); return; } // exit if error code
 
