@@ -97,7 +97,6 @@ function init() { // Execute after login succeed
 				$("#res").append("<option value='" + res[i].getId() + "'>" + res[i].getName() + "</option>");
 
 			var units = sess.getItems("avl_unit_group"); // get loaded 'avl_units's items
-			msg("groups: "+units);
 			// check if units found
 			if (!units || !units.length) {
 				msg("Units not found");
