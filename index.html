@@ -75,7 +75,7 @@ function getTemplates(){ // get report templates and put it in select list
 
 	var templ = res.getReports(); // get reports templates for resource
 	for(var i in templ){
-		if (templ[i].ct != "avl_unit") continue; // skip non-unit report templates
+		if (templ[i].ct != "avl_unit_group") continue; // skip non-unit report templates
 		// add report template to select list
 		$("#templ").append("<option value='"+ templ[i].id +"'>"+ templ[i].n+ "</option>");
 	}
