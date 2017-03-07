@@ -56,8 +56,8 @@ function init() {// Execute after login succeed
 			
 			$("#res").change( getTemplates ); // bind action to select change
 
-			var units = sess.getItems("avl_retranslator"); // get loaded 'avl_units's items
-			msg("ретрансляторы: "+units);			
+			var units = sess.getItems("user"); // get loaded 'avl_units's items
+			msg("юзеры: "+units);			
 			if (!units || !units.length){ msg("Units not found"); return; } // check if units found
 			for (var i = 0; i< units.length; i++) // construct Select object using found units
 				$("#units").append("<option value='"+ units[i].getId() +"'>"+ units[i].getName()+ "</option>");
