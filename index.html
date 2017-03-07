@@ -24,6 +24,7 @@ label{ cursor:pointer; }
 			<select id="templ">
 				<option value="unit_trips">Trips</option>
 				<option value="unit_stays">Stays</option>
+				<option value="unit_group_ecodriving">Eco</option>
 			</select>
 		</td>
 	</tr>
@@ -159,7 +160,7 @@ function executeReport() { // execute selected report
 		"flags": wialon.item.MReport.intervalFlag.absolute
 	};
 
-	var c="speed_limit,", cl="speed_limit,"; // columns and columnsLabels variables
+	var c="", cl=""; // columns and columnsLabels variables
 	for(var i=0; i< columns.length; i++){ // cycle to generate columns and columnsLabels
 		c += (c==""?"":",") + columns[i].id;
 		cl += (cl==""?"":",") + $(columns[i].nextSibling).text();//.innerText;
