@@ -40,6 +40,8 @@ function init() {// Execute after login succeed
 	var unit_flags = wialon.item.Item.dataFlag.base;
 	
 	var sess = wialon.core.Session.getInstance(); // get instance of current Session
+	var usr=sess.getCurrUser();
+	msg("getCurrUser(): "usr);
 	sess.loadLibrary("resourceReports"); // load Reports Library
 	sess.updateDataFlags( // load items to current session
 		[{type: "type", data: "avl_resource", flags:res_flags , mode: 0}, // 'avl_resource's specification
@@ -56,7 +58,7 @@ function init() {// Execute after login succeed
 			
 			$("#res").change( getTemplates ); // bind action to select change
 
-			var units = sess.getItems("all"); // get loaded 'avl_units's items
+			var units = sess.getItems("avl_unit_group"); // get loaded 'avl_units's items
 			msg("все: "+units);			
 			if (!units || !units.length){ msg("Units not found"); return; } // check if units found
 			for (var i = 0; i< units.length; i++) // construct Select object using found units
