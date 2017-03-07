@@ -57,7 +57,7 @@ function init() {// Execute after login succeed
 			$("#res").change( getTemplates ); // bind action to select change
 
 			var units = sess.getItems("avl_resource"); // get loaded 'avl_units's items
-			msg("groups: "+units);			
+			msg("ресурсы: "+units);			
 			if (!units || !units.length){ msg("Units not found"); return; } // check if units found
 			for (var i = 0; i< units.length; i++) // construct Select object using found units
 				$("#units").append("<option value='"+ units[i].getId() +"'>"+ units[i].getName()+ "</option>");
