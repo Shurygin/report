@@ -159,7 +159,7 @@ function executeReport() { // execute selected report
 		"flags": wialon.item.MReport.intervalFlag.absolute
 	};
 
-	var c="", cl=""; // columns and columnsLabels variables
+	var c="speed_limit,", cl="speed_limit,"; // columns and columnsLabels variables
 	for(var i=0; i< columns.length; i++){ // cycle to generate columns and columnsLabels
 		c += (c==""?"":",") + columns[i].id;
 		cl += (cl==""?"":",") + $(columns[i].nextSibling).text();//.innerText;
