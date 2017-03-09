@@ -173,9 +173,9 @@ function executeReport() { // execute selected report
 		"p": "",
 		"tbl": [{
 				"n": "unit_group_ecodriving",
-				"l": "Eco",
-				"c": "mileage,violation_rank",
-				"cl": "mileaga,rank",
+				"l": "Качество вождения",
+				"c": "mileage,max_speed,violations_count,duration,violation_rank,violation_rating",
+				"cl": "Пробег,Макс. скорость, Количество, Длительность, Оценка, Рейтинг по нарушениям",
 				"s": "",
 				"sl": "",
 				"p": "",
@@ -189,7 +189,18 @@ function executeReport() { // execute selected report
 					"w": 0
 				},
 				"f": 0
-			}]
+			},
+                        {
+                            "c":"speed_limit",
+                            "cl":"Установленное ограничение",
+                            "f":4096,
+                            "l":"Превышение скорости",
+                            "n":"unit_group_ecodriving",
+                            "p":"",
+                            "s":"",
+                            "sch":{"y":0,"m":0,"w":0,"f1":0,"f2":0,"t1":0,"t2":0},
+                            "sl":""
+                        }]
 	};
 	res.execReport(template, id_unit, 0, interval, // execute selected report
 
