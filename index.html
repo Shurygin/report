@@ -15,7 +15,7 @@ ul{ list-style: none; margin:0px; padding:0px; display:block;overflow-y: auto; m
 label{ cursor:pointer; }	
 </style>
 
-<p>3</p>
+<p>4</p>
 <table>
 	<tr>
 		<td>Select resource and table:</td>
@@ -213,10 +213,10 @@ function showReportResult(result) { // show result after report execute
 					//html += "</tr>"; // close table row
 				}
 				//html += "</table>";
-				
+				msg(html + "</div>");
 			},
 		this,html);
-		msg(html + "</div>");
+		
 	}
 }
 function getTableValue(data) { // calculate ceil value
