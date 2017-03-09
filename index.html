@@ -195,10 +195,10 @@ function showReportResult(result) { // show result after report execute
 		// html contains information about one table
 		var html = "<table style='width:100%' cellspacing='0' cellpadding='0'><tr><td colspan='8'><b>ОТЧЕТ: КАЧЕСТВО РАБОТЫ ВОДИТЕЛЯ ТРАНСПОРТНОГО СРЕДСТВА</b><br>Период с "+fromDate.toLocaleString()+" по "+toDate.toLocaleString()+"<div class='wrap'></td></tr>";
 		var headers = tables[i].header; // get table headers
-		html += "<tr>"; // open header row
+		/*html += "<tr>"; // open header row
 		for (var j = 0; j < headers.length; j++) // add header
 			html += "<th>" + headers[j] + "</th>";
-		html += "</tr>"; // close header row
+		html += "</tr>"; // close header row*/
 		result.getTableRows(i, 0, tables[i].rows, // get Table rows
 			function(code, rows) { // getTableRows callback
 				if (code) {
