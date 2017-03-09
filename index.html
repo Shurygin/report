@@ -101,9 +101,7 @@ function init() { // Execute after login succeed
 				$("#units").append("<option value='" + units[i].getId() + "'>" + units[i].getName() + "</option>");
 		}
 	);
-	drawCheckboxes();
-	$('#templ').change(drawCheckboxes);
-}
+	
 
 function executeReport() { // execute selected report
 	// get data from corresponding fields
