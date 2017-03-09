@@ -185,12 +185,13 @@ function executeReport() { // execute selected report
 function showReportResult(result) { // show result after report execute
 	var tables = result.getTables(); // get report tables
 	var sess = wialon.core.Session.getInstance(); // get instance of current Session
-	var to = sess.getServerTime(); // get current server time (end time of report time interval)
+	var to = sess.getServerTime();// get current server time (end time of report time interval)
+	var toDate = new Date(to*1000);
 	var from = to - parseInt($("#interval").val(), 10); // calculate start time of report
 	if (!tables) return; // exit if no tables
 	for (var i = 0; i < tables.length; i++) { // cycle on tables
 		// html contains information about one table
-		var html = "<b>ОТЧЕТ: КАЧЕСТВО РАБОТЫ ВОДИТЕЛЯ ТРАНСПОРТНОГО СРЕДСТВА</b><br>Период с "+from+" по "+to+"<div class='wrap'><table style='width:100%'>";
+		var html = "<b>ОТЧЕТ: КАЧЕСТВО РАБОТЫ ВОДИТЕЛЯ ТРАНСПОРТНОГО СРЕДСТВА</b><br>Период с "+from+" по "+toDate+"<div class='wrap'><table style='width:100%'>";
 		var headers = tables[i].header; // get table headers
 		html += "<tr>"; // open header row
 		for (var j = 0; j < headers.length; j++) // add header
