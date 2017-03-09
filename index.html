@@ -15,7 +15,7 @@ ul{ list-style: none; margin:0px; padding:0px; display:block;overflow-y: auto; m
 label{ cursor:pointer; }	
 </style>
 
-<p>1</p>
+<p>2</p>
 <table>
 	<tr>
 		<td>Select resource and table:</td>
@@ -212,8 +212,8 @@ function showReportResult(result) { // show result after report execute
 						html += "<td>" + getTableValue(rows[j].c[k]) + "</td>";
 					//html += "</tr>"; // close table row
 				}
-				html += "</table>";
-				msg(html + "</div>");
+				//html += "</table>";
+				//msg(html + "</div>");
 			},
 		this,html);
 	}
