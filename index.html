@@ -202,6 +202,7 @@ function showReportResult(result) { // show result after report execute
 		result.getTableRows(i, 0, tables[i].rows, // get Table rows				    
 			function(code, rows) { // getTableRows callback
 				console.log(rows);
+				
 				if (code) {
 					msg(wialon.core.Errors.getErrorText(code));
 					return;
@@ -212,6 +213,7 @@ function showReportResult(result) { // show result after report execute
 					for (var k = 0; k < rows[j].c.length; k++) // add ceils to table
 						html += "<td>" + getTableValue(rows[j].c[k]) + "</td>";
 					//html += "</tr>"; // close table row
+					console.log(rows[j].c.[2]);
 				}
 				//html += "</table>";
 				msg(html + "</div>");
