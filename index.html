@@ -186,7 +186,7 @@ function showReportResult(result) { // show result after report execute
 	if (!tables) return; // exit if no tables
 	for (var i = 0; i < tables.length; i++) { // cycle on tables
 		// html contains information about one table
-		var html = "<b>ОТЧЕТ: КАЧЕСТВО РАБОТЫ ВОДИТЕЛЯ ТРАНСПОРТНОГО СРЕДСТВА</b><div class='wrap'><table style='width:100%'>";
+		var html = "<b>ОТЧЕТ: КАЧЕСТВО РАБОТЫ ВОДИТЕЛЯ ТРАНСПОРТНОГО СРЕДСТВА</b><br>Период с "+from+" по "+to+"<div class='wrap'><table style='width:100%'>";
 		var headers = tables[i].header; // get table headers
 		html += "<tr>"; // open header row
 		for (var j = 0; j < headers.length; j++) // add header
