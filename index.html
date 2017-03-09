@@ -112,7 +112,7 @@ function init() { // Execute after login succeed
 }
 
 
-function drawCheckboxes () {
+/*function drawCheckboxes () {
 	// get available reports table
 	wialon.core.Session.getInstance().getReportTables(function (code,data){
 		var selectedTmpl = $("#templ").val();
@@ -132,7 +132,7 @@ function drawCheckboxes () {
 	});
 
 }
-
+*/
 
 function executeReport() { // execute selected report
 	// get data from corresponding fields
@@ -160,11 +160,7 @@ function executeReport() { // execute selected report
 		"flags": wialon.item.MReport.intervalFlag.absolute
 	};
 
-	var c="", cl=""; // columns and columnsLabels variables
-	for(var i=0; i< columns.length; i++){ // cycle to generate columns and columnsLabels
-		c += (c==""?"":",") + columns[i].id;
-		cl += (cl==""?"":",") + $(columns[i].nextSibling).text();//.innerText;
-	}
+	
 	$("#exec_btn").prop("disabled", true); // disable button (to prevent multiclick while execute)
 	var template = {// fill template object
 		"id": 0,
