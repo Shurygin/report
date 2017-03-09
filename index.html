@@ -168,14 +168,14 @@ function executeReport() { // execute selected report
 	$("#exec_btn").prop("disabled", true); // disable button (to prevent multiclick while execute)
 	var template = {// fill template object
 		"id": 0,
-		"n": templ,
+		"n": "Отчет по нарушениям",
 		"ct": "avl_unit_group",
 		"p": "",
 		"tbl": [{
-				"n": templ,
-				"l": $("#templ option[value='" + templ + "']").text(),
-				"c": c,
-				"cl": cl,
+				"n": "unit_group_ecodriving",
+				"l": "Eco",
+				"c": "mileage,violation_rank",
+				"cl": "mileaga,rank",
 				"s": "",
 				"sl": "",
 				"p": "",
