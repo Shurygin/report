@@ -184,7 +184,8 @@ function executeReport() { // execute selected report
 }
 function showReportResult(result) { // show result after report execute
 	var tables = result.getTables(); // get report tables
-	var to = wialon.core.Session.getServerTime(); // get current server time (end time of report time interval)
+	var sess = wialon.core.Session.getInstance(); // get instance of current Session
+	var to = sess.getServerTime(); // get current server time (end time of report time interval)
 	var from = to - parseInt($("#interval").val(), 10); // calculate start time of report
 	if (!tables) return; // exit if no tables
 	for (var i = 0; i < tables.length; i++) { // cycle on tables
