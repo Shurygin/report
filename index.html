@@ -157,7 +157,7 @@ function executeReport() { // execute selected report
 				},
 				"f": 0
 			},
-                        /*{
+                        {
                             "c":"speed_limit",
                             "cl":"Установленное ограничение",
                             "f":4096,
@@ -167,7 +167,7 @@ function executeReport() { // execute selected report
                             "s":"",
                             "sch":{"y":0,"m":0,"w":0,"f1":0,"f2":0,"t1":0,"t2":0},
                             "sl":""
-                        }*/]
+                        }]
 	};
 	res.execReport(template, id_unit, 0, interval, // execute selected report
 	function(code, data) { // execReport template
@@ -189,6 +189,7 @@ function showReportResult(result) { // show result after report execute
 	var toDate = new Date(to*1000);
 	var from = to - parseInt($("#interval").val(), 10); // calculate start time of report
 	var fromDate= new Date(from*1000);
+	console.log(tables);
 	if (!tables) return; // exit if no tables
 	for (var i = 0; i < tables.length; i++) { // cycle on tables
 		// html contains information about one table
