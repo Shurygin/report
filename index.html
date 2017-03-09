@@ -112,27 +112,6 @@ function init() { // Execute after login succeed
 }
 
 
-/*function drawCheckboxes () {
-	// get available reports table
-	wialon.core.Session.getInstance().getReportTables(function (code,data){
-		var selectedTmpl = $("#templ").val();
-		var col = [];
-		var html = '';
-		for (var i = 0; i < data.length; i++) {
-			if (data[i].n == selectedTmpl) {//draw only selected report table
-				col = data[i].col;
-				for (var j = 0; j < col.length; j++){ // construct Select object using found report columns
-					if( col[j].l != '' && col[j].n != '' ){
-						html += '<li><input class="rep_col" type="checkbox" id="' + col[j].n + '"/><label for="' + col[j].n + '">' + col[j].l + '</label></li>';
-					}
-				}
-			}
-		};
-		$('#columns').html(html);
-	});
-
-}
-*/
 
 function executeReport() { // execute selected report
 	// get data from corresponding fields
@@ -191,7 +170,7 @@ function executeReport() { // execute selected report
                             "cl":"Установленное ограничение",
                             "f":4096,
                             "l":"Превышение скорости",
-                            "n":"unit_group_ecodriving",
+                            "n":"unit_group_speedings",
                             "p":"",
                             "s":"",
                             "sch":{"y":0,"m":0,"w":0,"f1":0,"f2":0,"t1":0,"t2":0},
