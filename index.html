@@ -101,7 +101,7 @@ function init() { // Execute after login succeed
 				$("#units").append("<option value='" + units[i].getId() + "'>" + units[i].getName() + "</option>");
 		}
 	);
-		drawCheckboxes();
+		/*drawCheckboxes();*/
 	$('#templ').change(drawCheckboxes);
 }
 
@@ -191,7 +191,7 @@ function showReportResult(result) { // show result after report execute
 	if (!tables) return; // exit if no tables
 	for (var i = 0; i < tables.length; i++) { // cycle on tables
 		// html contains information about one table
-		var html = "<b>ОТЧЕТ: КАЧЕСТВО РАБОТЫ ВОДИТЕЛЯ ТРАНСПОРТНОГО СРЕДСТВА</b><br>Период с "+from+" по "+toDate.toString()+"<div class='wrap'><table style='width:100%'>";
+		var html = "<b>ОТЧЕТ: КАЧЕСТВО РАБОТЫ ВОДИТЕЛЯ ТРАНСПОРТНОГО СРЕДСТВА</b><br>Период с "+from+" по "+toDate.toLocaleDateString()+"<div class='wrap'><table style='width:100%'>";
 		var headers = tables[i].header; // get table headers
 		html += "<tr>"; // open header row
 		for (var j = 0; j < headers.length; j++) // add header
