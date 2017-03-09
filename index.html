@@ -210,9 +210,9 @@ function showReportResult(result) { // show result after report execute
 					html += "<tr" + (j % 2 == 1 ? " class='odd' " : "") + ">"; // open table row
 					for (var k = 0; k < rows[j].c.length; k++) // add ceils to table
 						html += "<td>" + getTableValue(rows[j].c[k]) + "</td>";
-					html += "</tr>"; // close table row
+					//html += "</tr>"; // close table row
 				}
-				/*html += "</table>";*/
+				html += "</table>";
 				msg(html + "</div>");
 			},
 		this,html);
