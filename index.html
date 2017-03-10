@@ -201,8 +201,8 @@ function showReportResult(result) { // show result after report execute
 	for (var i = 0; i < tables.length; i++) { // cycle on tables
 		// html contains information about one table
 		var html = "<table style='width:100%' cellspacing='0' cellpadding='0'><tr><td colspan='8'><b>ОТЧЕТ: КАЧЕСТВО РАБОТЫ ВОДИТЕЛЯ ТРАНСПОРТНОГО СРЕДСТВА</b><br>Период с "+fromDate.toLocaleString()+" по "+toDate.toLocaleString()+"<div class='wrap'></td></tr>";
-		html +="<tr><td >№</td><td>Транспортное средство</td><td >Пробег, км</td><td colspan='2'><table cellspacing='0' cellpadding='0' width='100%'><tr><td colspan='2'>Скорость, км/ч</td></tr><tr><td width='50%'>Установленное ограниечение</td><td wirth='50%'>Максимальная скорость</td></tr></table></td><td >кол-во превышений</td><td>Общая продолжительность превышения скорости(чч:мм:сек)</td><td >Оценка качества вождения</td></tr>";
-		result.getTableRows(i, 0, tables[i].rows, // get Table rows				    
+		html +="<tr><td >№</td><td>Транспортное средство</td><td >Пробег, км</td><td colspan='2'><table cellspacing='0' cellpadding='0' width='100%'><tr><td colspan='2'>Скорость, км/ч</td></tr><tr><td width='150px'>Установленное ограниечение</td><td width='150px'>Максимальная скорость</td></tr></table></td><td >кол-во превышений</td><td>Общая продолжительность превышения скорости(чч:мм:сек)</td><td >Оценка качества вождения</td></tr>";
+		result.getTableRows(i, 0, tables[0].rows, // get Table rows				    
 			function(code, rows) { // getTableRows callback   good=green ok=yellow  bad=red
 				if (code) {
 					msg(wialon.core.Errors.getErrorText(code));
@@ -211,7 +211,7 @@ function showReportResult(result) { // show result after report execute
 				var reportRow="";
 				console.log(i);				
 				if (rows[0].c.length==3){
-					reportRow+="<td>"+rows[0].c[0]+"</td><td>"+rows[0].c[1]+"</td><td>mileage</td><td>"+rows[0].c[2]+"</td>";
+					reportRow+="<td>"+rows[0].c[0]+"</td><td>"+rows[0].c[1]+"</td><td>mileage</td><td width='150px'>"+rows[0].c[2]+"</td>";
 					html+="<tr>"+reportRow;
 					/*if (rows[0].c[5] < 25){
 						html+="<tr class='good'>"+reportRow+"</tr>";
@@ -223,7 +223,7 @@ function showReportResult(result) { // show result after report execute
 					
 					
 				} else if (rows[0].c.length==7){
-					 reportRow+="<td>"+rows[0].c[2]+"</td><td>"+rows[0].c[3]+"</td><td>"+rows[0].c[4]+"</td><td>"+rows[0].c[5]+"</td>";
+					 reportRow+="<td width='150px'>"+rows[0].c[2]+"</td><td>"+rows[0].c[3]+"</td><td>"+rows[0].c[4]+"</td><td>"+rows[0].c[5]+"</td>";
 					html+=reportRow+"</tr></table>";  
 					msg(html + "</div>");
 				}
