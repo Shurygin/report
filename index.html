@@ -202,7 +202,8 @@ function showReportResult(result) { // show result after report execute
 		result.getTableRows(i, 0, tables[i].rows, // get Table rows				    
 			function(code, rows) { // getTableRows callback
 				console.log(rows);
-				
+				console.log(rows[0]);
+				console.log(rows[1]);
 				if (code) {
 					msg(wialon.core.Errors.getErrorText(code));
 					return;
