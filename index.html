@@ -188,9 +188,7 @@ function showReportResult(result) { // show result after report execute
 	var to = sess.getServerTime();// get current server time (end time of report time interval)
 	var toDate = new Date(to*1000);
 	var from = to - parseInt($("#interval").val(), 10); // calculate start time of report
-	var fromDate= new Date(from*1000);
-	console.log(tables);
-	console.log(result);
+	var fromDate= new Date(from*1000);	
 	if (!tables) return; // exit if no tables
 	for (var i = 0; i < tables.length; i++) { // cycle on tables
 		// html contains information about one table
@@ -215,7 +213,7 @@ function showReportResult(result) { // show result after report execute
 					for (var k = 0; k < rows[j].c.length; k++) // add ceils to table
 						html += "<td>" + getTableValue(rows[j].c[k]) + "</td>";
 					//html += "</tr>"; // close table row
-					console.log(rows[j].c[2]);
+					//console.log(rows[j].c[2]);
 				}
 				//html += "</table>";
 				msg(html + "</div>");
