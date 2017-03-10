@@ -211,6 +211,8 @@ function showReportResult(result) { // show result after report execute
 			function(code, rows) { // getTableRows callback   good=green ok=yellow  bad=red
 				if (i==1){
 					console.log(i+"works");
+				} else{
+					console.log(i+"dont work");
 				}
 				console.log(rows[0]);
 			
