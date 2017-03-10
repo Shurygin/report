@@ -209,10 +209,11 @@ function showReportResult(result) { // show result after report execute
 		html +="<tr><td rowspan='2'>№</td><td rowspan='2'>Транспортное средство</td><td rowspan='2'>Пробег, км</td><td colspan='2' rowspan='2'><table cellspacing='0' cellpadding='0'><tr><td colspan='2'>Скорость, км/ч</td></tr><tr><td>Установленное ограниечение</td><td>Максимальная скорость</td></tr></table></td><td rowspan='2'>кол-во превышений</td><td rowspan='2'>Общая продолжительность превышения скорости(чч:мм:сек)</td><td rowspan='2'>Оценка качества вождения</td></tr>";
 		result.getTableRows(i, 0, tables[i].rows, // get Table rows				    
 			function(code, rows) { // getTableRows callback   good=green ok=yellow  bad=red
-				
+				if (i==1){
+					console.log(i+"works");
+				}
 				console.log(rows[0]);
-			console.log(tables[0].rows[0]);
-			console.log(tables[1].rows[0]);
+			
 				if (code) {
 					msg(wialon.core.Errors.getErrorText(code));
 					return;
