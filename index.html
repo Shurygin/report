@@ -201,7 +201,7 @@ function showReportResult(result) { // show result after report execute
 	for (var i = 0; i < tables.length; i++) { // cycle on tables
 		// html contains information about one table
 		var html = "<table style='width:100%' cellspacing='0' cellpadding='0'><tr><td colspan='8'><b>ОТЧЕТ: КАЧЕСТВО РАБОТЫ ВОДИТЕЛЯ ТРАНСПОРТНОГО СРЕДСТВА</b><br>Период с "+fromDate.toLocaleString()+" по "+toDate.toLocaleString()+"<div class='wrap'></td></tr>";
-		html +="<tr><td >№</td><td>Транспортное средство</td><td >Пробег, км</td><td colspan='2'><table cellspacing='0' cellpadding='0' width='100%'><tr><td colspan='2'>Скорость, км/ч</td></tr><tr><td>Установленное ограниечение</td><td>Максимальная скорость</td></tr></table></td><td >кол-во превышений</td><td>Общая продолжительность превышения скорости(чч:мм:сек)</td><td >Оценка качества вождения</td></tr>";
+		html +="<tr><td >№</td><td>Транспортное средство</td><td >Пробег, км</td><td colspan='2'><table cellspacing='0' cellpadding='0' width='100%'><tr><td colspan='2'>Скорость, км/ч</td></tr><tr><td width='50%'>Установленное ограниечение</td><td wirth='50%'>Максимальная скорость</td></tr></table></td><td >кол-во превышений</td><td>Общая продолжительность превышения скорости(чч:мм:сек)</td><td >Оценка качества вождения</td></tr>";
 		result.getTableRows(i, 0, tables[i].rows, // get Table rows				    
 			function(code, rows) { // getTableRows callback   good=green ok=yellow  bad=red
 				if (code) {
@@ -225,9 +225,10 @@ function showReportResult(result) { // show result after report execute
 				} else if (rows[0].c.length==7){
 					 reportRow+="<td>"+rows[0].c[2]+"</td><td>"+rows[0].c[3]+"</td><td>"+rows[0].c[4]+"</td><td>"+rows[0].c[5]+"</td>";
 					html+=reportRow+"</tr></table>";  
+					msg(html + "</div>");
 				}
 				console.log(rows);
-				msg(html + "</div>");
+				
 				
 				
 			
