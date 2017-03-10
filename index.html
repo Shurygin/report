@@ -201,7 +201,7 @@ function showReportResult(result) { // show result after report execute
 	for (var i = 0; i < tables.length; i++) { // cycle on tables
 		// html contains information about one table
 		var html = "<table style='width:100%' cellspacing='0' cellpadding='0'><tr><td colspan='8'><b>ОТЧЕТ: КАЧЕСТВО РАБОТЫ ВОДИТЕЛЯ ТРАНСПОРТНОГО СРЕДСТВА</b><br>Период с "+fromDate.toLocaleString()+" по "+toDate.toLocaleString()+"<div class='wrap'></td></tr>";
-		html +="<tr><td rowspan='2'>№</td><td rowspan='2'>Транспортное средство</td><td rowspan='2'>Пробег, км</td><td colspan='2' rowspan='2'><table cellspacing='0' cellpadding='0'><tr><td colspan='2'>Скорость, км/ч</td></tr><tr><td>Установленное ограниечение</td><td>Максимальная скорость</td></tr></table></td><td rowspan='2'>кол-во превышений</td><td rowspan='2'>Общая продолжительность превышения скорости(чч:мм:сек)</td><td rowspan='2'>Оценка качества вождения</td></tr>";
+		html +="<tr><td >№</td><td>Транспортное средство</td><td >Пробег, км</td><td ><table cellspacing='0' cellpadding='0'><tr><td colspan='2'>Скорость, км/ч</td></tr><tr><td>Установленное ограниечение</td><td>Максимальная скорость</td></tr></table></td><td >кол-во превышений</td><td>Общая продолжительность превышения скорости(чч:мм:сек)</td><td >Оценка качества вождения</td></tr>";
 		result.getTableRows(i, 0, tables[i].rows, // get Table rows				    
 			function(code, rows) { // getTableRows callback   good=green ok=yellow  bad=red
 				if (code) {
@@ -218,7 +218,8 @@ function showReportResult(result) { // show result after report execute
 						html+="<tr class='ok'>"+reportRow+"</tr>";
 					} else {
 						
-					}*/					
+					}*/
+					msg(html + "</div>");
 				}
 				console.log(rows[0]);
 				
@@ -237,12 +238,12 @@ function showReportResult(result) { // show result after report execute
 					//console.log(rows[j].c[2]);
 				}*/
 				//html += "</table>";
-				msg(html + "</div>");
+				
 			},
 		this,html);
 		
 	}
-	msg(html + "</div>");
+	
 }
 function getTableValue(data) { // calculate ceil value
 	if (typeof data == "object")
