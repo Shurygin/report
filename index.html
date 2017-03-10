@@ -201,11 +201,6 @@ function showReportResult(result) { // show result after report execute
 	for (var i = 0; i < tables.length; i++) { // cycle on tables
 		// html contains information about one table
 		var html = "<table style='width:100%' cellspacing='0' cellpadding='0'><tr><td colspan='8'><b>ОТЧЕТ: КАЧЕСТВО РАБОТЫ ВОДИТЕЛЯ ТРАНСПОРТНОГО СРЕДСТВА</b><br>Период с "+fromDate.toLocaleString()+" по "+toDate.toLocaleString()+"<div class='wrap'></td></tr>";
-		/*var headers = tables[i].header; // get table headers
-		html += "<tr>"; // open header row
-		for (var j = 0; j < headers.length; j++) // add header
-			html += "<th>" + headers[j] + "</th>";
-		html += "</tr>"; // close header row*/
 		html +="<tr><td rowspan='2'>№</td><td rowspan='2'>Транспортное средство</td><td rowspan='2'>Пробег, км</td><td colspan='2' rowspan='2'><table cellspacing='0' cellpadding='0'><tr><td colspan='2'>Скорость, км/ч</td></tr><tr><td>Установленное ограниечение</td><td>Максимальная скорость</td></tr></table></td><td rowspan='2'>кол-во превышений</td><td rowspan='2'>Общая продолжительность превышения скорости(чч:мм:сек)</td><td rowspan='2'>Оценка качества вождения</td></tr>";
 		result.getTableRows(i, 0, tables[i].rows, // get Table rows				    
 			function(code, rows) { // getTableRows callback   good=green ok=yellow  bad=red
@@ -213,12 +208,13 @@ function showReportResult(result) { // show result after report execute
 					msg(wialon.core.Errors.getErrorText(code));
 					return;
 				} // exit if error code
+				var reportRow
 				if (rows[0].c.length==3){
-					console.log("length works");
+					reportRow+="<td>"+rows[0].c[0]+"</td><td>"+rows[0].c[1]+"</td><td>mileage</td><td>"+rows[0].c[2]+"</td>;
 				}
 			
 				
-			var reportRow="<td>"+rows[1].c[0]+"</td><td>"+rows[1].c[1]+"</td><td>"+rows[0].c[1]+"</td><td>"+rows[1].c[2]+"</td><td>"+rows[0].c[2]+"</td><td>"+rows[0].c[3]+"</td><td>"+rows[0].c[4]+"</td><td>"+rows[0].c[5]+"</td>";
+			
 				if (rows[0].c[5] < 25){
 					html+="<tr class='good'>"+reportRow+"</tr>";
 				} else if(rows[0].c[5] < 50){
