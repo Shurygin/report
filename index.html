@@ -226,11 +226,12 @@ function showReportResult(result) { // show result after report execute
 					}*/				
 					msg(html + "</div>"); 
 				} else if (rows[0].c.length==7&&reportRow===""){
-					
+					console.log("woop woop motherfucker");
 					reportRowSec+="<td width='150px'>"+rows[0].c[2]+"</td><td>"+rows[0].c[3]+"</td><td>"+rows[0].c[4]+"</td><td>"+rows[0].c[5]+"</td>";
 					html+=reportRow+"</tr></table>";
 					
 				} else if (rows[0].c.length==7){
+					console.log("woop woop");
 					reportRow+="<td width='150px'>"+rows[0].c[2]+"</td><td>"+rows[0].c[3]+"</td><td>"+rows[0].c[4]+"</td><td>"+rows[0].c[5]+"</td>";
 					html+=reportRow+"</tr></table>";  
 					msg(html + "</div>");   
