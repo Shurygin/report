@@ -15,7 +15,7 @@ ul{ list-style: none; margin:0px; padding:0px; display:block;overflow-y: auto; m
 label{ cursor:pointer; }	
 </style>
 
-<p>10</p>
+<p>11</p>
 <table>
 	<tr>
 		<td>Select resource and table:</td>
@@ -189,8 +189,8 @@ function showReportResult(result) { // show result after report execute
 	var toDate = new Date(to*1000);
 	var from = to - parseInt($("#interval").val(), 10); // calculate start time of report
 	var fromDate= new Date(from*1000);
-	console.log("таблицы: "+tables);
-	console.log("результат отчёта: "+result);
+	console.log(tables);
+	console.log(result);
 	if (!tables) return; // exit if no tables
 	for (var i = 0; i < tables.length; i++) { // cycle on tables
 		// html contains information about one table
@@ -203,7 +203,7 @@ function showReportResult(result) { // show result after report execute
 		html +="<tr><td rowspan='2'>№</td><td rowspan='2'>Транспортное средство</td><td rowspan='2'>Пробег, км</td><td colspan='2' rowspan='2'><table cellspacing='0' cellpadding='0'><tr><td colspan='2'>Скорость, км/ч</td></tr><tr><td>Установленное ограниечение</td><td>Максимальная скорость</td></tr></table></td><td rowspan='2'>кол-во превышений</td><td rowspan='2'>Общая продолжительность превышения скорости(чч:мм:сек)</td><td rowspan='2'>Оценка качества вождения</td></tr>";
 		result.getTableRows(i, 0, tables[i].rows, // get Table rows				    
 			function(code, rows) { // getTableRows callback
-				console.log("rows= "+rows);
+				console.log(rows);
 				
 				if (code) {
 					msg(wialon.core.Errors.getErrorText(code));
@@ -215,7 +215,7 @@ function showReportResult(result) { // show result after report execute
 					for (var k = 0; k < rows[j].c.length; k++) // add ceils to table
 						html += "<td>" + getTableValue(rows[j].c[k]) + "</td>";
 					//html += "</tr>"; // close table row
-					console.log("ограничение для "+j+" элемента= "+rows[j].c[2]);
+					console.log(rows[j].c[2]);
 				}
 				//html += "</table>";
 				msg(html + "</div>");
