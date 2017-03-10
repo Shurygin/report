@@ -223,13 +223,14 @@ function showReportResult(result) { // show result after report execute
 					} else {
 						
 					}*/				
-					
+					msg(html + "</div>"); 
 				} else if (rows[0].c.length==7&&reportRow===""){
-					console.log("else if 2"+reportRow);
-					console.log(rows[0]);
-					return;
+					
+					reportRowSec+="<td width='150px'>"+rows[0].c[2]+"</td><td>"+rows[0].c[3]+"</td><td>"+rows[0].c[4]+"</td><td>"+rows[0].c[5]+"</td>";
+					html+=reportRow+"</tr></table>";
+					
 				} else if (rows[0].c.length==7){
-					 reportRow+="<td width='150px'>"+rows[0].c[2]+"</td><td>"+rows[0].c[3]+"</td><td>"+rows[0].c[4]+"</td><td>"+rows[0].c[5]+"</td>";
+					reportRow+="<td width='150px'>"+rows[0].c[2]+"</td><td>"+rows[0].c[3]+"</td><td>"+rows[0].c[4]+"</td><td>"+rows[0].c[5]+"</td>";
 					html+=reportRow+"</tr></table>";  
 					msg(html + "</div>");   
 				}
