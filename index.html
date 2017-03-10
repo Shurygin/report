@@ -23,7 +23,7 @@ ul{ list-style: none; margin:0px; padding:0px; display:block;overflow-y: auto; m
 label{ cursor:pointer; }	
 </style>
 
-<p>12</p>
+<p>13</p>
 <table>
 	<tr>
 		<td>Select resource and table:</td>
@@ -209,14 +209,22 @@ function showReportResult(result) { // show result after report execute
 		html +="<tr><td rowspan='2'>№</td><td rowspan='2'>Транспортное средство</td><td rowspan='2'>Пробег, км</td><td colspan='2' rowspan='2'><table cellspacing='0' cellpadding='0'><tr><td colspan='2'>Скорость, км/ч</td></tr><tr><td>Установленное ограниечение</td><td>Максимальная скорость</td></tr></table></td><td rowspan='2'>кол-во превышений</td><td rowspan='2'>Общая продолжительность превышения скорости(чч:мм:сек)</td><td rowspan='2'>Оценка качества вождения</td></tr>";
 		result.getTableRows(i, 0, tables[i].rows, // get Table rows				    
 			function(code, rows) { // getTableRows callback   good=green ok=yellow  bad=red
-				
+				var reportRow="<td>rows[1].c[0]</td><td>rows[1].c[1]</td><td>rows[0].c[1]</td><td>rows[1].c[2]</td><td>rows[0].c[2]</td><td>rows[0].c[3]</td><td>rows[0].c[4]</td><td>rows[0].c[5]</td>";
 				console.log(rows[0]);
 				console.log(rows[1]);
 				if (code) {
 					msg(wialon.core.Errors.getErrorText(code));
 					return;
 				} // exit if error code
+				if (rows[0].c[5] < 25){
+					html+="<tr class='good'>"+reportRow+"</tr>";
+				} else if(rows[0].c[5] < 50){
+					html+="<tr class='ok'>"+reportRow+"</tr>";
+				} else {
+					html+="<tr class='bad'>"+reportRow+"</tr>";
+				}
 				
+					
 				/*for (var j in rows) { // cycle on table rows
 					if (typeof rows[j].c == "undefined") continue; // skip empty rows
 					html += "<tr" + (j % 2 == 1 ? " class='odd' " : "") + ">"; // open table row
@@ -231,6 +239,7 @@ function showReportResult(result) { // show result after report execute
 		this,html);
 		
 	}
+	msg(html + "</div>");
 }
 function getTableValue(data) { // calculate ceil value
 	if (typeof data == "object")
