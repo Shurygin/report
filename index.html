@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Wialon Playground - Execute custom report</title>
+    <title>Отчет по нарушениям</title>
     <script type="text/javascript" src="//code.jquery.com/jquery-latest.min.js"></script>
     <script type="text/javascript" src="//hst-api.wialon.com/wsdk/script/wialon.js"></script>
 </head>
@@ -15,7 +15,7 @@ ul{ list-style: none; margin:0px; padding:0px; display:block;overflow-y: auto; m
 label{ cursor:pointer; }	
 </style>
 
-<p>7</p>
+<p>8</p>
 <table>
 	<tr>
 		<td>Select resource and table:</td>
@@ -189,19 +189,21 @@ function showReportResult(result) { // show result after report execute
 	var toDate = new Date(to*1000);
 	var from = to - parseInt($("#interval").val(), 10); // calculate start time of report
 	var fromDate= new Date(from*1000);
-	console.log(tables);
+	console.log("таблицы: "+tables);
+	console.log("результат отчёта: "+result);
 	if (!tables) return; // exit if no tables
 	for (var i = 0; i < tables.length; i++) { // cycle on tables
 		// html contains information about one table
 		var html = "<table style='width:100%' cellspacing='0' cellpadding='0'><tr><td colspan='8'><b>ОТЧЕТ: КАЧЕСТВО РАБОТЫ ВОДИТЕЛЯ ТРАНСПОРТНОГО СРЕДСТВА</b><br>Период с "+fromDate.toLocaleString()+" по "+toDate.toLocaleString()+"<div class='wrap'></td></tr>";
-		var headers = tables[i].header; // get table headers
-		/*html += "<tr>"; // open header row
+		/*var headers = tables[i].header; // get table headers
+		html += "<tr>"; // open header row
 		for (var j = 0; j < headers.length; j++) // add header
 			html += "<th>" + headers[j] + "</th>";
 		html += "</tr>"; // close header row*/
+		html +="<tr><td rowspan='2'>№</td><td rowspan='2'>Транспортное средство</td><td rowspan='2'>Пробег, км</td><td colspan='2'>Скорость, км/ч</td><td>Установленное ограниечение</td><td>Максимальная скорость</td><td rowspan='2'>кол-во превышений</td><td rowspan='2'>Общая продолжительность превышения скорости(чч:мм:сек)</td><td rowspan='2'>Оценка качества вождения</td></tr>";
 		result.getTableRows(i, 0, tables[i].rows, // get Table rows				    
 			function(code, rows) { // getTableRows callback
-				console.log(rows);
+				console.log("rows= "rows);
 				
 				if (code) {
 					msg(wialon.core.Errors.getErrorText(code));
@@ -213,7 +215,7 @@ function showReportResult(result) { // show result after report execute
 					for (var k = 0; k < rows[j].c.length; k++) // add ceils to table
 						html += "<td>" + getTableValue(rows[j].c[k]) + "</td>";
 					//html += "</tr>"; // close table row
-					console.log(rows[j].c[2]);
+					console.log("ограничение для "+j+" элемента= "+rows[j].c[2]);
 				}
 				//html += "</table>";
 				msg(html + "</div>");
