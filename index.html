@@ -56,7 +56,7 @@ label{ cursor:pointer; }
 		<td>Report Columns:</td>
 		<td><ul id="columns"></ul></td>
 	</tr>
-	<tr><td colspan="2" style="text-align:center;"><input type="button" value="Execute report" id="exec_btn"/></td></tr>
+	<tr><td colspan="2" style="text-align:center;"><input type="button" value="Выполнить отчет" id="exec_btn"/></td></tr>
 </table>
 <div id="log"></div>
 
@@ -211,7 +211,7 @@ function showReportResult(result) { // show result after report execute
 				var reportRow="";
 				if (rows[0].c.length==3){
 					reportRow+="<td>"+rows[0].c[0]+"</td><td>"+rows[0].c[1]+"</td><td>mileage</td><td>"+rows[0].c[2]+"</td>";
-					html+="<tr class='bad'>"+reportRow+"</tr></table>";
+					html+="<tr>"+reportRow;
 					/*if (rows[0].c[5] < 25){
 						html+="<tr class='good'>"+reportRow+"</tr>";
 					} else if(rows[0].c[5] < 50){
@@ -220,6 +220,9 @@ function showReportResult(result) { // show result after report execute
 						
 					}*/
 					msg(html + "</div>");
+				} else if (rows[0].c.length==7){
+					 reportRow+="<td>"+rows[0].c[2]+"</td><td>"+rows[0].c[3]+"</td><td>"+rows[0].c[4]+"</td><td>"+rows[0].c[5]+"</td>"";
+					html+=reportRow+"</tr></table>";  
 				}
 				console.log(rows[0]);
 				
