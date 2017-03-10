@@ -211,8 +211,8 @@ function showReportResult(result) { // show result after report execute
 			function(code, rows) { // getTableRows callback   good=green ok=yellow  bad=red
 				
 				console.log(rows[0]);
-			console.log(tables[0].rows);
-			console.log(tables[1].rows);
+			console.log(tables[0].rows[0]);
+			console.log(tables[1].rows[0]);
 				if (code) {
 					msg(wialon.core.Errors.getErrorText(code));
 					return;
