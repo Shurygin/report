@@ -23,7 +23,7 @@ ul{ list-style: none; margin:0px; padding:0px; display:block;overflow-y: auto; m
 label{ cursor:pointer; }	
 </style>
 
-<p>21</p>
+<p>22</p>
 <table>
 	<tr>
 		<td>Select resource and table:</td>
@@ -199,11 +199,10 @@ function showReportResult(result) { // show result after report execute
 	var fromDate= new Date(from*1000);	
 	if (!tables) return; // exit if no tables
 	var html = "<table style='width:100%' cellspacing='0' cellpadding='0'><tr><td colspan='8'><b>ОТЧЕТ: КАЧЕСТВО РАБОТЫ ВОДИТЕЛЯ ТРАНСПОРТНОГО СРЕДСТВА</b><br>Период с "+fromDate.toLocaleString()+" по "+toDate.toLocaleString()+"<div class='wrap'></td></tr><tr><td >№</td><td>Транспортное средство</td><td >Пробег, км</td><td colspan='2'><table cellspacing='0' cellpadding='0' width='100%'><tr><td colspan='2'>Скорость, км/ч</td></tr><tr><td width='150px'>Установленное ограниечение</td><td width='150px'>Максимальная скорость</td></tr></table></td><td >кол-во превышений</td><td>Общая продолжительность превышения скорости(чч:мм:сек)</td><td >Оценка качества вождения</td></tr>";
-	
+	var reportRow="";
+	var reportRowSec="";
 	for (var i = 0; i < tables.length; i++) { // cycle on tables
-		// html contains information about one table
-			
-		
+		// html contains information about one table	
 		
 		result.getTableRows(0, 0, tables[i].rows, // get Table rows				    
 			function(code, rows) { // getTableRows callback   good=green ok=yellow  bad=red
@@ -211,8 +210,7 @@ function showReportResult(result) { // show result after report execute
 					msg(wialon.core.Errors.getErrorText(code));
 					return;
 				} // exit if error code
-				var reportRow="";
-				var reportRowSec="";			
+				/*			
 				if (rows[0].c.length==3){
 					console.log("i work");
 					reportRow+="<td>"+rows[0].c[0]+"</td><td>"+rows[0].c[1]+"</td><td>mileage</td><td width='150px'>"+rows[0].c[2]+"</td>";
@@ -224,36 +222,22 @@ function showReportResult(result) { // show result after report execute
 					} else {
 						
 					}*/				
-					msg(html + "</div>"); 
-				} else if (rows[0].c.length==7&&reportRow===""){
-					console.log("woop woop motherfucker");
-					reportRowSec+="<td width='150px'>"+rows[0].c[2]+"</td><td>"+rows[0].c[3]+"</td><td>"+rows[0].c[4]+"</td><td>"+rows[0].c[5]+"</td>";
-					html+=reportRow+"</tr></table>";
+					/*msg(html + "</div>"); 
+				} else if (rows[0].c.length==7&&reportRow===""){*/
+				console.log("woop woop motherfucker");
+				reportRowSec+="<td width='150px'>"+rows[0].c[2]+"</td><td>"+rows[0].c[3]+"</td><td>"+rows[0].c[4]+"</td><td>"+rows[0].c[5]+"</td>";	
 					
-				} else if (rows[0].c.length==7){
-					console.log("woop woop");
-					reportRow+="<td width='150px'>"+rows[0].c[2]+"</td><td>"+rows[0].c[3]+"</td><td>"+rows[0].c[4]+"</td><td>"+rows[0].c[5]+"</td>";
-					html+=reportRow+"</tr></table>";  
-					msg(html + "</div>");   
-				}
+				
+				
+			},
+		this,html);
+		result.getTableRows(1, 0, tables[i].rows, // get Table rows				    
+			function(code, rows) { // getTableRows callback   good=green ok=yellow  bad=red
+				if (code) {
+					msg(wialon.core.Errors.getErrorText(code));
+					return;
+				} // exit if error code
 				console.log(rows);
-				
-				
-				
-			
-				
-				
-					
-				/*for (var j in rows) { // cycle on table rows
-					if (typeof rows[j].c == "undefined") continue; // skip empty rows
-					html += "<tr" + (j % 2 == 1 ? " class='odd' " : "") + ">"; // open table row
-					for (var k = 0; k < rows[j].c.length; k++) // add ceils to table
-						html += "<td>" + getTableValue(rows[j].c[k]) + "</td>";
-					//html += "</tr>"; // close table row
-					//console.log(rows[j].c[2]);
-				}*/
-				//html += "</table>";
-				
 			},
 		this,html);
 		
