@@ -224,8 +224,8 @@ function showReportResult(result) { // show result after report execute
 					}*/				
 					/*msg(html + "</div>"); 
 				} else if (rows[0].c.length==7&&reportRow===""){*/
-				console.log("woop woop motherfucker");
-				reportRowSec+="<td width='150px'>"+rows[0].c[2]+"</td><td>"+rows[0].c[3]+"</td><td>"+rows[0].c[4]+"</td><td>"+rows[0].c[5]+"</td>";	
+				
+				reportRowSec+="<td width='150px'>"+rows[0].c[2]+"</td><td>"+rows[0].c[3]+"</td><td>"+rows[0].c[4]+"</td><td>"+rows[0].c[5]+"</td></tr>";	
 					
 				
 				
@@ -238,9 +238,11 @@ function showReportResult(result) { // show result after report execute
 					return;
 				} // exit if error code
 				console.log(rows);
+				reportRow+="<td>"+rows[0].c[0]+"</td><td>"+rows[0].c[1]+"</td><td>mileage</td><td width='150px'>"+rows[0].c[2]+"</td>";
 			},
 		this,html);
-		
+		html+="<tr>"+reportRow+reportRowSec;
+		setTimeout(msg(html), 5000);
 	}
 	
 }
