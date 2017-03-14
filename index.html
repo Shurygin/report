@@ -23,7 +23,7 @@ ul{ list-style: none; margin:0px; padding:0px; display:block;overflow-y: auto; m
 label{ cursor:pointer; }	
 </style>
 
-<p>25</p>
+<p>26</p>
 <table>
 	<tr>
 		<td>Select resource and table:</td>
@@ -226,8 +226,7 @@ function showReportResult(result) { // show result after report execute
 				} else if (rows[0].c.length==7&&reportRow===""){*/
 				console.log(rows);
 				reportRowSec+="<td width='150px'>"+rows[0].c[2]+"</td><td>"+rows[0].c[3]+"</td><td>"+rows[0].c[4]+"</td><td>"+rows[0].c[5]+"</td></tr>";	
-				html+="<tr>"+reportRowSec;
-				msg(html);					
+							
 		
 			result.getTableRows(1, 0, tables[0].rows, // get Table rows				    
 			function(code, rows) { // getTableRows callback   good=green ok=yellow  bad=red
@@ -237,8 +236,9 @@ function showReportResult(result) { // show result after report execute
 				} // exit if error code
 				
 			console.log(rows);
-			
-			
+			reportRow+="<td>"+rows[0].c[0]+"</td><td>"+rows[0].c[1]+"</td><td>mileage</td><td width='150px'>"+rows[0].c[2]+"</td>";
+			html+="<tr>"+reportRow+reportRowSec;
+			msg(html);		
 			},
 		this,html);
 			
