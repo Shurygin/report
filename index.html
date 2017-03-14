@@ -238,7 +238,8 @@ function showReportResult(result) { // show result after report execute
 			console.log(rows);
 			reportRow+="<td>"+rows[0].c[0]+"</td><td>"+rows[0].c[1]+"</td><td>mileage</td><td width='150px'>"+rows[0].c[2]+"</td>";
 			html+="<tr>"+reportRow+reportRowSec;
-			msg(html);		
+			msg(html);
+			return;
 			},
 		this,html);
 			
