@@ -204,7 +204,7 @@ function showReportResult(result) { // show result after report execute
 	for (var i = 0; i < tables.length; i++) { // cycle on tables
 		// html contains information about one table	
 		
-		result.getTableRows(i, 0, tables[i].rows, // get Table rows				    
+		result.getTableRows(1, 0, tables[1].rows, // get Table rows				    
 			function(code, rows) { // getTableRows callback   good=green ok=yellow  bad=red
 				if (code) {
 					msg(wialon.core.Errors.getErrorText(code));
