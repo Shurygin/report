@@ -229,6 +229,19 @@ function showReportResult(result) { // show result after report execute
 				html+="<tr>"+reportRowSec;
 				msg(html);					
 		
+			result.getTableRows(1, 0, tables[0].rows, // get Table rows				    
+			function(code, rows) { // getTableRows callback   good=green ok=yellow  bad=red
+				if (code) {
+					msg(wialon.core.Errors.getErrorText(code));
+					return;
+				} // exit if error code
+				
+			console.log(rows);
+			
+			
+			},
+		this,html);
+			
 				
 			},
 		this,html);
