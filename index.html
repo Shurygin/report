@@ -214,7 +214,7 @@ function showReportResult(result) { // show result after report execute
 				
 				console.log(rows);
 				reportRowSec+="<td width='150px'>"+rows[0].c[2]+"</td><td>"+rows[0].c[3]+"</td><td>"+rows[0].c[4]+"</td><td>"+rows[0].c[5]+"</td></tr>";
-				reportRowMil+="rows[0].c[1]";
+				reportRowMil+=rows[0].c[1];
 			result.getTableRows(1, 0, tables[0].rows, // get Table rows				    
 			function(code, rows) { // getTableRows callback   good=green ok=yellow  bad=red
 				if (code) {
