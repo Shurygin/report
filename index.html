@@ -23,7 +23,7 @@ ul{ list-style: none; margin:0px; padding:0px; display:block;overflow-y: auto; m
 label{ cursor:pointer; }	
 </style>
 
-<p>28</p>
+<p>30</p>
 <table>
 	<tr>
 		<td>Select resource and table:</td>
@@ -166,8 +166,8 @@ function executeReport() { // execute selected report
 				"f": 0
 			},
                         {
-                            "c":"speed_limit",
-                            "cl":"Установленное ограничение",
+                            "c":"speed_limit,duration",
+                            "cl":"Установленное ограничение,duration",
                             "f":4096,
                             "l":"Превышение скорости",
                             "n":"unit_group_speedings",
@@ -213,7 +213,7 @@ function showReportResult(result) { // show result after report execute
 				} // exit if error code
 				
 				console.log(rows);
-				reportRowSec+="<td width='150px'>"+rows[0].c[2]+"</td><td>"+rows[0].c[3]+"</td><td>"+rows[0].c[4]+"</td><td>"+rows[0].c[5]+"</td></tr>";
+				reportRowSec+="<td width='150px'>"+rows[0].c[2]+"</td><td>"+rows[0].c[3]+"</td><td>";
 				reportRowMil=parseFloat(rows[0].c[1]);
 				reportRowRank=parseFloat(rows[0].c[5]);
 				if (reportRowRank<25){
@@ -232,7 +232,7 @@ function showReportResult(result) { // show result after report execute
 				
 			console.log(rows);
 			reportRow+="<td>"+rows[0].c[0]+"</td><td>"+rows[0].c[1]+"</td><td>"+reportRowMil+"</td><td width='150px'>"+rows[0].c[2]+"</td>";
-			html+="<tr class="+reportRowClass+">"+reportRow+reportRowSec;
+			html+="<tr class="+reportRowClass+">"+reportRow+reportRowSec+"</td><td>"+rows[0].c[3]+"</td><td>"+"</td><td>"+reportRowRank+"</td><td></tr>";
 			msg(html);
 			return;
 			},
