@@ -35,15 +35,7 @@ var tableToExcel = (function() {
 <style>
 td, th{ border: 1px solid #c6c6c6; }
 .wrap{ max-height:150px; overflow-y: auto; }
-	.good{
-		background-color:green;
-	}
-	.ok{
-		background-color:yellow;
-	}
-	.bad{
-		background-color:red;
-	}
+	
 ul{ list-style: none; margin:0px; padding:0px; display:block;overflow-y: auto; max-height: 200px;width: 300px}
 label{ cursor:pointer; }	
 </style>
@@ -242,11 +234,11 @@ function showReportResult(result) { // show result after report execute
 				reportRowMil=parseFloat(rows[0].c[1]);
 				reportRowRank=parseFloat(rows[0].c[5]);
 				if (reportRowRank<25){
-					reportRowClass="good";	
+					reportRowClass="green";	
 				} else if (reportRowRank<50){
-					reportRowClass="ok";
+					reportRowClass="yellow";
 				} else{
-					reportRowClass="bad";
+					reportRowClass="red";
 				}
 			result.getTableRows(1, 0, tables[0].rows, // get Table rows				    
 			function(code, rows) { // getTableRows callback   good=green ok=yellow  bad=red
@@ -257,7 +249,7 @@ function showReportResult(result) { // show result after report execute
 				
 			console.log(rows);
 			reportRow+="<td>"+rows[0].c[0]+"</td><td>"+rows[0].c[1]+"</td><td>"+reportRowMil+"</td><td width='150px'>"+rows[0].c[2]+"</td>";
-			html+="<tr style='background-color:green;' class="+reportRowClass+">"+reportRow+reportRowSec+"<td>"+rows[0].c[3]+"</td><td>"+reportRowRank+"</td></tr>";
+			html+="<tr style='background-color:"+reportRowClass+";'>"+reportRow+reportRowSec+"<td>"+rows[0].c[3]+"</td><td>"+reportRowRank+"</td></tr>";
 			msg(html);
 			return;
 			},
