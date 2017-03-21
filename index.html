@@ -152,7 +152,9 @@ function executeReport() { // execute selected report
 	var sess = wialon.core.Session.getInstance(); // get instance of current Session
 	var res = sess.getItem(id_res); // get resource by id
 	var to = sess.getServerTime(); // get current server time (end time of report time interval)
+	console.log(to);
 	var from = to - parseInt($("#interval").val(), 10); // calculate start time of report
+	console.log(from);
 	var columns = $("ul li .rep_col:checked"); // get columns, that need to be in a report
 	// specify time interval object
 	var interval = {
