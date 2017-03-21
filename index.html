@@ -135,8 +135,8 @@ function init() { // Execute after login succeed
 
 function executeReport() { // execute selected report
 	// get data from corresponding fields
-	var beginTime= new Date(+$('#filterBeginTime').val());
-	var endTime= new Date(+$('#filterEndTime').val());
+	var beginTime= +new Date($('#filterBeginTime').val());
+	var endTime= +new Date($('#filterEndTime').val());
 	console.log(beginTime,endTime);
 	var id_res = $("#res").val(),
 		templ = $("#templ").val(),
