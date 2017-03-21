@@ -61,12 +61,13 @@ label{ cursor:pointer; }
 	</tr>
 	<tr>
 		<td>Период отчёта:</td>
-		<td>
+		<td><p>от</p><input id="filterBeginTime" value="" type="datetime-local">
 			<select id="interval">
 				<option value="86400" title="60 sec * 60 minutes * 24 hours = 86400 sec = 1 day">Last day</option>
 				<option value="604800" title="86400 sec * 7 days = 604800 sec = 1 week">Last week</option>
 				<option value="2592000" title="86400 sec * 30 days = 2592000 sec = 1 month">Last month</option>
 			</select>
+			<p>до</p><input id="filterEndTime" value="" type="datetime-local">
 		</td>
 	</tr>
 	<!--<tr>
@@ -79,6 +80,7 @@ label{ cursor:pointer; }
 
 
 <script type="text/javascript">
+
 // Print message to log
 function msg(text) {
 	$("#log").prepend(text + "<br/>");
@@ -133,6 +135,9 @@ function init() { // Execute after login succeed
 
 function executeReport() { // execute selected report
 	// get data from corresponding fields
+	var beginTime= new Date($('#filterBeginTime').val());
+	var endTime= new Date($('#filterEndTime').val());
+	console.log(beginTime,endTime);
 	var id_res = $("#res").val(),
 		templ = $("#templ").val(),
 		id_unit = $("#units").val(),
