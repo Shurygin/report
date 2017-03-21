@@ -61,9 +61,9 @@ label{ cursor:pointer; }
 	</tr>
 	<tr>
 		<td>Период отчёта:</td>
-		<td>от<input id="filterBeginTime" value="" type="datetime-local"><br>
+		<td>от:<input id="filterBeginTime" value="" type="datetime-local"><br>
 			
-			до<input id="filterEndTime" value="" type="datetime-local">
+			до:<input id="filterEndTime" value="" type="datetime-local">
 		</td>
 	</tr>
 	<!--<tr>
@@ -261,7 +261,7 @@ function showReportResult(result) { // show result after report execute
 				
 			console.log(rows);
 			reportRow+="<td>"+rows[0].c[0]+"</td><td>"+rows[0].c[1]+"</td><td>"+reportRowMil+"</td><td width='150px'>"+rows[0].c[2]+"</td>";
-			html+="<tr style='background-color:"+reportRowClass+";'>"+reportRow+reportRowSec+"<td>"+rows[0].c[3]+"</td><td>"+reportRowRank+"</td></tr>";
+			html+="<tr style='background-color:"+reportRowClass+";'>"+reportRow+reportRowSec+"<td>"+rows[0].c[3]+"</td><td>"+parseInt(reportRowRank)+"</td></tr>";
 			msg(html);
 			return;
 			},
