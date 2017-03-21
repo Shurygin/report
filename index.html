@@ -137,8 +137,8 @@ function executeReport() { // execute selected report
 	// get data from corresponding fields
 	var beginTime= +new Date($('#filterBeginTime').val());
 	var endTime= +new Date($('#filterEndTime').val());
-	beginTime =beginTime*1000;
-	endTime =endTime*1000;
+	beginTime =beginTime/1000;
+	endTime =endTime/1000;
 	console.log(beginTime);
 	console.log(endTime);
 	var id_res = $("#res").val(),
