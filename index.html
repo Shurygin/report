@@ -62,11 +62,11 @@ label{ cursor:pointer; }
 	<tr>
 		<td>Период отчёта:</td>
 		<td>от<input id="filterBeginTime" value="" type="datetime-local">
-			<select id="interval">
+			<!--<select id="interval">
 				<option value="86400" title="60 sec * 60 minutes * 24 hours = 86400 sec = 1 day">Last day</option>
 				<option value="604800" title="86400 sec * 7 days = 604800 sec = 1 week">Last week</option>
 				<option value="2592000" title="86400 sec * 30 days = 2592000 sec = 1 month">Last month</option>
-			</select>
+			</select>-->
 			до<input id="filterEndTime" value="" type="datetime-local">
 		</td>
 	</tr>
@@ -155,10 +155,10 @@ function executeReport() { // execute selected report
 	} // exit if no unit selected
 	var sess = wialon.core.Session.getInstance(); // get instance of current Session
 	var res = sess.getItem(id_res); // get resource by id
-	var to = sess.getServerTime(); // get current server time (end time of report time interval)
+	/*var to = sess.getServerTime(); // get current server time (end time of report time interval)
 	console.log(to);
 	var from = to - parseInt($("#interval").val(), 10); // calculate start time of report
-	console.log(from);
+	console.log(from);*/
 	var columns = $("ul li .rep_col:checked"); // get columns, that need to be in a report
 	// specify time interval object
 	var interval = {
@@ -220,12 +220,14 @@ function executeReport() { // execute selected report
 function showReportResult(result) { // show result after report execute
 	var tables = result.getTables(); // get report tables
 	var sess = wialon.core.Session.getInstance(); // get instance of current Session
+	var beginTime= new Date($('#filterBeginTime').val());
+	var endTime= new Date($('#filterEndTime').val());
 	var to = sess.getServerTime();// get current server time (end time of report time interval)
 	var toDate = new Date(to*1000);
 	var from = to - parseInt($("#interval").val(), 10); // calculate start time of report
 	var fromDate= new Date(from*1000);	
 	if (!tables) return; // exit if no tables
-	var html = "<table id='report' style='width:100%' cellspacing='0' cellpadding='0'><tr><td colspan='8'><b>ОТЧЕТ: КАЧЕСТВО РАБОТЫ ВОДИТЕЛЯ ТРАНСПОРТНОГО СРЕДСТВА</b><br>Период с "+fromDate.toLocaleString()+" по "+toDate.toLocaleString()+"<div class='wrap'></td></tr><tr><td >№</td><td>Транспортное средство</td><td >Пробег, км</td><td colspan='2'><table cellspacing='0' cellpadding='0' width='100%'><tr><td colspan='2'>Скорость, км/ч</td></tr><tr><td width='150px'>Установленное ограниечение</td><td width='150px'>Максимальная скорость</td></tr></table></td><td >кол-во превышений</td><td>Общая продолжительность превышения скорости(чч:мм:сек)</td><td >Оценка качества вождения</td></tr>";
+	var html = "<table id='report' style='width:100%' cellspacing='0' cellpadding='0'><tr><td colspan='8'><b>ОТЧЕТ: КАЧЕСТВО РАБОТЫ ВОДИТЕЛЯ ТРАНСПОРТНОГО СРЕДСТВА</b><br>Период с "+beginTime.toLocaleString()+" по "+endTime.toLocaleString()+"<div class='wrap'></td></tr><tr><td >№</td><td>Транспортное средство</td><td >Пробег, км</td><td colspan='2'><table cellspacing='0' cellpadding='0' width='100%'><tr><td colspan='2'>Скорость, км/ч</td></tr><tr><td width='150px'>Установленное ограниечение</td><td width='150px'>Максимальная скорость</td></tr></table></td><td >кол-во превышений</td><td>Общая продолжительность превышения скорости(чч:мм:сек)</td><td >Оценка качества вождения</td></tr>";
 	var reportRow="",
  reportRowSec="",reportRowMil="",reportRowClass="",reportRowRank="";
 	
