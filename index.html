@@ -245,9 +245,9 @@ function showReportResult(result) { // show result after report execute
 				reportRowSec+="<td width='150px'>"+rows[0].c[2]+"</td><td>"+rows[0].c[3]+"</td>";
 				reportRowMil=parseFloat(rows[0].c[1]);
 				reportRowRank=parseFloat(rows[0].c[5]);
-				if (reportRowRank<25){
+				if (reportRowRank>4){
 					reportRowClass="green";	
-				} else if (reportRowRank<50){
+				} else if (reportRowRank>2){
 					reportRowClass="yellow";
 				} else{
 					reportRowClass="red";
